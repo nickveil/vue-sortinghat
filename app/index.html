@@ -18,26 +18,40 @@
 
 
 	<div id ="sortingHat" v-cloak>
-		<h1 class="mt-5 text-center">Sorting Hat</h1>
+		<h1 class="mt-5 text-center"><strong>Sorting Hat</strong></h1>
 		<hr class="mt-5 mb-3 ml-5 mr-5" />
 
 		<div class="form-group row">
-		  <label for="example-text-input" class="col-2 col-form-label">Name</label>
-		  <div class="col-10">
+			<div class="display"> {{ selectedHouse }}</div>
+			
+		  
+		  <div class="col-12 text-center">
 		    <input id="nameInput"
-		    			 class="form-control" 
+		    			 class="form-control " 
 		           type="text" 
 		           placeholder=" Please Enter Your Name"
 		           v-model="newName" >
 		  </div>
 		</div>
-				<div class="form-group row">
-			<button type="submit" class="btn btn-outline-primary mx-auto" v-on:click="houseOrQuestion">Submit</button>
+
+		<div class="form-group row">
+			<button type="submit" class="btn btn-danger mx-auto" v-on:click="houseOrQuestion">Submit</button>
 		</div>
 
-	<div> {{ selectedHouse }}</div>
-		<div> {{ selectedQuestions }}</div>
-		<div> {{ whichType }} </div>
+	
+		<div class="houseName"> {{ selectedQuestions }}</div>
+
+		<ul class="text-center" v-on:click="($event)">
+			<li
+				is="selections"
+				v-for="answer in listOfAnswers" 
+				v-bind:text="answer.text"
+				v-bind:house="answer.house"
+				v-bind:display-Questions="displayQuestions">
+					
+				</li>
+
+		</ul>
 
 
 
