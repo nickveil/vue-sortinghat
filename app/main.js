@@ -1,5 +1,5 @@
 Vue.component('selections', {
-	template: '<li><button v-on:click="displayQuestions(house)">{{text}}</button></li>',
+	template: '<li><button class="btn btn-info buttons mx-auto" v-on:click="displayQuestions(house)">{{text}}</button></li>',
 	props: ['text','house','displayQuestions']
 })
 
@@ -158,7 +158,7 @@ var sortingHat = new Vue( {
 			const idx = Math.floor(Math.random() * 10);
 			var whichType=idx;
 
-			if(whichType>4){
+			if(whichType>7){
 				this.randomHouse();
 			}else{
 				this.randomQuestion();
@@ -173,7 +173,7 @@ var sortingHat = new Vue( {
 		},
 
 		randomQuestion : function(){
-			const idx = Math.floor(Math.random() * 5 /*this.Questions.length*/);
+			const idx = Math.floor(Math.random() * this.Questions.length);
 	    this.selectedQuestions = this.Questions[idx].text;
 	    this.listOfAnswers=this.Questions[idx].answers;
 	    
